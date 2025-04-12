@@ -13,19 +13,24 @@ This project implements a **production-grade batch processing pipeline** for NYC
 
 ## **📂 Repository Structure**  
 ```
-├── Dockerfile    : Scala spark Dockerfile
-├── build.sbt     : Scala sbt build file
-├── config        : configuration files for DB/Kafka/AWS..
-├── data          : Raw/processed/output data (batch/stream)
-├── doc           : All repo reference/doc/pic
-├── elk           : ELK (Elasticsearch, Logstash, Kibana) config/scripts 
-├── fluentd       : Fluentd help scripts
-├── kafka         : Kafka help scripts
-├── pyspark       : Legacy pipeline code (Python)
-├── requirements.txt
-├── script        : Help scripts (env/services) 
-├── src           : Batch/stream process scripts (Scala)
-└── utility       : Help scripts (pipeline)
+│   .github
+│   build.sbt
+│   Dockerfile
+│   README.md
+│
+├───archived
+├───config
+├───doc
+├───elk
+├───hive
+├───kafka
+├───output
+├───project
+├───pyspark
+├───script
+├───src
+└───target
+
 ```
 
 ---
