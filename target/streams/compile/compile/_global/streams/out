@@ -1,0 +1,19 @@
+[0m[[0m[33mwarn[0m] [0m[0mClass org.joda.convert.FromString not found - continuing with a stub.[0m
+[0m[[0m[33mwarn[0m] [0m[0mClass org.joda.convert.ToString not found - continuing with a stub.[0m
+[0m[[0m[33mwarn[0m] [0m[0mClass org.joda.convert.ToString not found - continuing with a stub.[0m
+[0m[[0m[33mwarn[0m] [0m[0mClass org.joda.convert.FromString not found - continuing with a stub.[0m
+[0m[[0m[33mwarn[0m] [0m[0mClass org.joda.convert.ToString not found - continuing with a stub.[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/yennanliu/NYC_Taxi_Pipeline/flink/src/main/scala/sinks/ElasticsearchUpsertSink.scala:32:8: object InetSocketTransportAddress is not a member of package org.elasticsearch.common.transport[0m
+[0m[[0m[31merror[0m] [0m[0mimport org.elasticsearch.common.transport.InetSocketTransportAddress[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/yennanliu/NYC_Taxi_Pipeline/flink/src/main/scala/sinks/ElasticsearchUpsertSink.scala:65:29: value settingsBuilder is not a member of object org.elasticsearch.common.settings.Settings[0m
+[0m[[0m[31merror[0m] [0m[0m    val settings = Settings.settingsBuilder()[0m
+[0m[[0m[31merror[0m] [0m[0m                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/yennanliu/NYC_Taxi_Pipeline/flink/src/main/scala/sinks/ElasticsearchUpsertSink.scala:68:14: class TransportClient is abstract; cannot be instantiated[0m
+[0m[[0m[31merror[0m] [0m[0m    client = new TransportClient(settings)[0m
+[0m[[0m[31merror[0m] [0m[0m             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/yennanliu/NYC_Taxi_Pipeline/flink/src/main/scala/sinks/ElasticsearchUpsertSink.scala:69:32: not found: type InetSocketTransportAddress[0m
+[0m[[0m[31merror[0m] [0m[0m      .addTransportAddress(new InetSocketTransportAddress(host, port))[0m
+[0m[[0m[31merror[0m] [0m[0m                               ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m5 warnings found[0m
+[0m[[0m[31merror[0m] [0m[0mfour errors found[0m

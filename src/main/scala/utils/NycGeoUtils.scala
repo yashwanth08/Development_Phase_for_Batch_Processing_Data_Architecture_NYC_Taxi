@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-// modify from https://github.com/yennanliu/flink-streaming-demo/blob/master/src/main/scala/com/dataartisans/flink_demo/utils/NycGeoUtils.scala
-
 package utils
 
 import datatypes.GeoPoint
@@ -44,12 +42,13 @@ object NycGeoUtils {
    * within the geo boundaries of New York City.
    *
    * @param point the geo point to check
+   *
    * @return true if the location is within NYC boundaries, otherwise false.
    */
   def isInNYC(point: GeoPoint): Boolean = {
-    if (point.lon > LonEast || point.lon < LonWest)
+    if(point.lon > LonEast || point.lon < LonWest)
       false
-    if (point.lat > LatNorth || point.lat < LatSouth)
+    if(point.lat > LatNorth || point.lat < LatSouth)
       false
     true
   }
@@ -60,6 +59,7 @@ object NycGeoUtils {
    * to south-east starting by zero.
    *
    * @param point the geo point to map
+   *
    * @return id of mapped grid cell.
    */
   def mapToGridCell(point: GeoPoint): Int = {
@@ -72,6 +72,7 @@ object NycGeoUtils {
    * Returns the center of a grid cell as a GeoPoint
    *
    * @param gridCellId The grid cell.
+   *
    * @return The cell's center as GeoPoint
    */
   def getGridCellCenter(gridCellId: Int): GeoPoint = {
