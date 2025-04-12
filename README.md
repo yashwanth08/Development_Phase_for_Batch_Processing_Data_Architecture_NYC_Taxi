@@ -2,7 +2,7 @@
 
 🚖 **Scalable, Fault-Tolerant Batch Pipeline for NYC Taxi Data**  
 📊 **Tech Stack:** Spark (Scala/Python), Docker, PostgreSQL, HDFS, Airflow, Terraform  
-🔗 **GitHub:** [Omia7814/YASHWAN_Development_Phase_for_Batch_Processing_Data_Architecture_NYC_Taxi](https://github.com/Omia7814/YASHWAN_Development_Phase_for_Batch_Processing_Data_Architecture_NYC_Taxi)  
+🔗 **GitHub:** https://github.com/yashwanth08/Development_Phase_for_Batch_Processing_Data_Architecture_NYC_Taxi.git  
 
 ---
 
