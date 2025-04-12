@@ -12,27 +12,19 @@ This project implements a **production-grade batch processing pipeline** for NYC
 ---
 
 ## **📂 Repository Structure**  
-```bash
-├── .github/                  # CI/CD workflows (GitHub Actions)
-├── config/                   # Configuration files (Spark, DB, Airflow)
-├── data/                     # Sample datasets & schemas
-│   ├── raw/                  # Raw trip data (CSV/Parquet)
-│   ├── processed/            # Cleaned & transformed data
-│   └── outputs/              # Aggregated results (DB dumps)
-├── docker/                   # Dockerfiles & compose setup
-│   ├── spark-cluster/        # Spark master/worker configs
-│   ├── postgres/             # PostgreSQL with pgAdmin
-│   └── airflow/              # Airflow DAGs & containers
-├── notebooks/                # Jupyter notebooks (EDA/testing)
-├── scripts/                  # Utility scripts (data download, validation)
-├── src/                      # Core processing code
-│   ├── scala/                # Spark jobs (Scala)
-│   ├── python/               # PySpark & ingestion scripts
-│   └── sql/                  # DDL & queries for PostgreSQL
-├── terraform/                # IaC for AWS/GCP deployment
-├── tests/                    # Unit & integration tests
-├── LICENSE
-└── README.md                 # This file
+├── Dockerfile    : Scala spark Dockerfile
+├── build.sbt     : Scala sbt build file
+├── config        : configuration files for DB/Kafka/AWS..
+├── data          : Raw/processed/output data (batch/stream)
+├── doc           : All repo reference/doc/pic
+├── elk           : ELK (Elasticsearch, Logstash, Kibana) config/scripts 
+├── fluentd       : Fluentd help scripts
+├── kafka         : Kafka help scripts
+├── pyspark       : Legacy pipeline code (Python)
+├── requirements.txt
+├── script        : Help scripts (env/services) 
+├── src           : Batch/stream process scripts (Scala)
+└── utility       : Help scripts (pipeline)
 ```
 
 ---
