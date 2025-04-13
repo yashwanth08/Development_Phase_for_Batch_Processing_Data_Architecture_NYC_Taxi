@@ -57,8 +57,7 @@ This project implements a **production-grade batch processing pipeline** for NYC
 ### **2. Run the Pipeline**  
 ```bash
 # Clone the repo
-git clone https://github.com/Omia7814/YASHWAN_Development_Phase_for_Batch_Processing_Data_Architecture_NYC_Taxi.git
-cd YASHWAN_Development_Phase_for_Batch_Processing_Data_Architecture_NYC_Taxi
+git clone https://github.com/yashwanth08/Development_Phase_for_Batch_Processing_Data_Architecture_NYC_Taxi.git
 
 # Start services (Spark, Postgres, Airflow)
 docker-compose up -d
