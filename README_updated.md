@@ -4,15 +4,10 @@ E (extract  tlc-trip-record-data.page - S3 ) - T (transform  S3 - Spark) - L (lo
 
  Batch data  [nyc-tlc-trip-records-data](httpswww1.nyc.govsitetlcabouttlc-trip-record-data.page)
 
- Stream data  [TaxiEvent](httpsgithub.comyashwanth08Development_Phase_for_Batch_Processing_Data_Architecture_NYC_TaxitreemastersrcmainscalaTaxiEvent), `stream from file`.
-
  Tech  Spark, Hadoop, Hive, EMR, S3, MySQL, Kinesis, DynamoDB , Scala, Python, ELK, Kafka
  Batch pipeline  [DataLoad](httpsgithub.comyashwanth08Development_Phase_for_Batch_Processing_Data_Architecture_NYC_TaxitreemastersrcmainscalaDataLoad) - [DataTransform](httpsgithub.comyashwanth08Development_Phase_for_Batch_Processing_Data_Architecture_NYC_TaxitreemastersrcmainscalaDataTransform) - [CreateView](httpsgithub.comyashwanth08Development_Phase_for_Batch_Processing_Data_Architecture_NYC_TaxitreemastersrcmainscalaCreateView) - [SaveToDB](httpsgithub.comyashwanth08Development_Phase_for_Batch_Processing_Data_Architecture_NYC_TaxitreemastersrcmainscalaSaveToDB) - [SaveToHive](httpsgithub.comyashwanth08Development_Phase_for_Batch_Processing_Data_Architecture_NYC_TaxitreemastersrcmainscalaSaveToHive)
 	 Download batch data  [download_sample_data.sh](httpsgithub.comyashwanth08Development_Phase_for_Batch_Processing_Data_Architecture_NYC_Taxiblobmasterscriptdownload_sample_data.sh)
 	 Batch data  [transactional-data](httpsgithub.comyashwanth08Development_Phase_for_Batch_Processing_Data_Architecture_NYC_Taxitreemasterdatastagingtransactional-data), [reference-data](httpsgithub.comyashwanth08Development_Phase_for_Batch_Processing_Data_Architecture_NYC_Taxitreemasterdatastagingreference-data) - [processed-data](httpsgithub.comyashwanth08Development_Phase_for_Batch_Processing_Data_Architecture_NYC_Taxitreemasterdataprocessed) - [output-transactions](httpsgithub.comyashwanth08Development_Phase_for_Batch_Processing_Data_Architecture_NYC_Taxitreemasterdataoutputtransactions) - [output-materializedview](httpsgithub.comyashwanth08Development_Phase_for_Batch_Processing_Data_Architecture_NYC_Taxitreemasterdataoutputmaterializedview)
- Stream pipeline  [TaxiEvent](httpsgithub.comyashwanth08Development_Phase_for_Batch_Processing_Data_Architecture_NYC_TaxitreemastersrcmainscalaTaxiEvent) - [EventLoad](httpsgithub.comyashwanth08Development_Phase_for_Batch_Processing_Data_Architecture_NYC_TaxitreemastersrcmainscalaEventLoad) - [KafkaEventLoad](httpsgithub.comyashwanth08Development_Phase_for_Batch_Processing_Data_Architecture_NYC_TaxitreemastersrcmainscalaKafkaEventLoad)
-	 Stream data  [taxi-event](httpsgithub.comyashwanth08Development_Phase_for_Batch_Processing_Data_Architecture_NYC_Taxitreemasterdataevent)
-
 
 ## Architecture 
 img src =httpsgithub.comyashwanth08Development_Phase_for_Batch_Processing_Data_Architecture_NYC_Taxiblobmasterdocpicbatch_architecture_V3.svg width=800 height=400
@@ -52,16 +47,6 @@ summaryPrerequisitessummary
 	- Hadoop (optional)
 	- Python 3  (optional)
 	- Pyspark (optional)
-
-- Install (stream)
-	- Zoopkeeper
-	- Kafka
-	- Elasticsearch 7.6.1
-		- httpswww.elastic.codownloadselasticsearch
-	- Kibana 7.6.1
-		- httpswww.elastic.codownloadskibana-oss
-	- Logstash 7.6.1
-		- httpswww.elastic.codownloadslogstash
 
 - Set up 
 	- Run on local
@@ -129,47 +114,7 @@ spark-submit
  targetscala-2.11nyc_taxi_pipeline_2.11-1.0.jar
 
 ```
-
-details
-
-details
-summaryQuick-Start-Stream-Pipeline-Manuallysummary
-
-```bash 
-
-# STEP 1) sbt build
-abt compile
-sbt assembly
-
-# STEP 2) Create Taxi event
-spark-submit 
- --class TaxiEvent.CreateBasicTaxiEvent 
- targetscala-2.11nyc_taxi_pipeline_2.11-1.0.jar
-
-# check the event
-curl localhost44444
-
-# STEP 3) Process Taxi event
-spark-submit 
- --class EventLoad.SparkStream_demo_LoadTaxiEvent 
- targetscala-2.11nyc_taxi_pipeline_2.11-1.0.jar
-
-# STEP 4) Send Taxi event to Kafaka
-# start zookeeper, kafka
-brew services start zookeeper
-brew services start kafka
-
-# create kafka topic
-kafka-topics --create -zookeeper localhost2181 --replication-factor 1  --partitions 1 --topic first_topic
-kafka-topics --create -zookeeper localhost2181 --replication-factor 1  --partitions 1 --topic streams-taxi
-
-# curl event to kafka producer
-curl localhost44444  kafka-console-producer  --broker-list  127.0.0.19092 --topic first_topic
-
-# STEP 5) Spark process kafka stream
-spark-submit 
- --class KafkaEventLoad.LoadKafkaEventExample 
- targetscala-2.11nyc_taxi_pipeline_2.11-1.0.jar
+-------------
 
 # STEP 6) Spark process kafka stream
 spark-submit 
