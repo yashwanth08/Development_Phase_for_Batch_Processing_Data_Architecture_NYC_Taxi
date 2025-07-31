@@ -1,0 +1,11 @@
+pandas                      
+minio
+pyarrow
+fastparquet
+geopy
+psycopg2-binary
+pyspark
+delta-spark
+aws-java-sdk-bundle-1.12.260.jar
+hadoop-aws-3.3.4.jar
+postgresql-42.2.20.jar
